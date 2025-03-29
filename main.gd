@@ -1,4 +1,5 @@
 extends Node3D
+class_name Main
 
 var width:int = 64;
 var height:int = 64;
@@ -13,25 +14,18 @@ var hallway_scene:PackedScene = preload('res://objetos/Hallway.tscn')
 
 
 func _ready() -> void:
-	_draw_layout(_get_start_room_rect())
-
-
-func _draw_layout(roomCandidateRect:Rect2i) -> void:
-	var hallway = hallway_scene.instantiate()
-	# hallway.translate(Vector3(roomCandidateRect.position.x, 0, roomCandidateRect.position.y))
-
-	add_child(hallway)
+	add_child(hallway_scene.instantiate())
 
 
 func _get_start_room_rect() -> Rect2i:
 	var roomWidth:int = randi_range(roomWidthMin, roomWidthMax)
-	var availableWidthX:int = (width / 2) - roomWidth
+	var availableWidthX:int = int(width / 2.0) - roomWidth
 	var randomX:int = randi_range(0, availableWidthX)
-	var roomX = randomX + (width / 4)
+	var roomX = randomX + int(width / 4.0)
 
 	var roomLength:int = randi_range(roomLengthMin, roomLengthMax)
-	var availableLengthY:int = (height / 2) - roomLength
+	var availableLengthY:int = int(height / 2.0) - roomLength
 	var randomY:int = randi_range(0, availableLengthY)
-	var roomY = randomY + (height / 4)
+	var roomY = randomY + int(height / 4.0)
 
 	return Rect2i(roomX, roomY, roomWidth, roomLength)

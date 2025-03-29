@@ -1,4 +1,23 @@
-[gd_scene format=3 uid="uid://cl7gycrugvr2w"]
+[gd_scene load_steps=6 format=3 uid="uid://cl7gycrugvr2w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1387"]
+albedo_color = Color(0.960784, 0.854902, 0.537255, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3uf8"]
+albedo_color = Color(0.92549, 0.831373, 0.521569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2efj8"]
+albedo_color = Color(0.92549, 0.831373, 0.521569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1hnj"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_n1hnj"]
+material = SubResource("StandardMaterial3D_n1hnj")
+radius = 0.1
+height = 0.2
 
 [node name="Hallway" type="Node3D"]
 
@@ -8,6 +27,7 @@ use_collision = true
 collision_layer = 2
 collision_mask = 0
 size = Vector3(3, 0.5, 8)
+material = SubResource("StandardMaterial3D_a1387")
 
 [node name="wall-01" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 1.5, 0)
@@ -15,6 +35,7 @@ use_collision = true
 collision_layer = 2
 collision_mask = 0
 size = Vector3(0.5, 4, 8)
+material = SubResource("StandardMaterial3D_r3uf8")
 
 [node name="wall-02" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 1.5, 0)
@@ -22,3 +43,13 @@ use_collision = true
 collision_layer = 2
 collision_mask = 0
 size = Vector3(0.5, 4, 8)
+material = SubResource("StandardMaterial3D_2efj8")
+
+[node name="light" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+spot_range = 5.5
+spot_angle = 30.0
+
+[node name="bulb" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+mesh = SubResource("SphereMesh_n1hnj")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c88cip8vgqj10"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jesv3"]
+albedo_color = Color(0.960784, 0.854902, 0.537255, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kudwm"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_kudwm"]
+material = SubResource("StandardMaterial3D_kudwm")
+radius = 0.1
+height = 0.2
+
+[node name="Room" type="Node3D"]
+
+[node name="floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+collision_layer = 2
+size = Vector3(10, 0.5, 10)
+material = SubResource("StandardMaterial3D_jesv3")
+
+[node name="light" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+spot_range = 6.5
+
+[node name="bulb" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+mesh = SubResource("SphereMesh_kudwm")
