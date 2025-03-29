@@ -11,10 +11,11 @@ var roomLengthMax:int = 5;
 
 
 var hallway_scene:PackedScene = preload('res://objetos/Hallway.tscn')
+var room_scene:PackedScene = preload('res://objetos/Room.tscn')
 
 
 func _ready() -> void:
-	add_child(hallway_scene.instantiate())
+	add_child(room_scene.instantiate())
 
 
 func _get_start_room_rect() -> Rect2i:

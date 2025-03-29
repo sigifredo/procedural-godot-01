@@ -1,17 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c88cip8vgqj10"]
+[gd_scene load_steps=5 format=3 uid="uid://c88cip8vgqj10"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jesv3"]
-albedo_color = Color(0.960784, 0.854902, 0.537255, 1)
+[ext_resource type="Material" uid="uid://dsdw31xjise1a" path="res://materiales/floor.tres" id="1_jesv3"]
+[ext_resource type="Material" uid="uid://ktjjfu3f51b3" path="res://materiales/bulb.tres" id="2_8j0rl"]
+[ext_resource type="Material" uid="uid://bdt3bnpinei0a" path="res://materiales/roof.tres" id="3_1kahv"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kudwm"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 2.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_kudwm"]
-material = SubResource("StandardMaterial3D_kudwm")
-radius = 0.1
-height = 0.2
+[sub_resource type="BoxMesh" id="BoxMesh_jesv3"]
+material = ExtResource("2_8j0rl")
+size = Vector3(1, 0.05, 1)
 
 [node name="Room" type="Node3D"]
 
@@ -19,13 +14,285 @@ height = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 collision_layer = 2
-size = Vector3(10, 0.5, 10)
-material = SubResource("StandardMaterial3D_jesv3")
+size = Vector3(20, 0.5, 20)
+material = ExtResource("1_jesv3")
 
-[node name="light" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
-spot_range = 6.5
+[node name="roof" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25, 0)
+size = Vector3(20, 0.5, 20)
+material = ExtResource("3_1kahv")
 
-[node name="bulb" type="MeshInstance3D" parent="."]
+[node name="light-01" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, 8)
+
+[node name="bulb" type="MeshInstance3D" parent="light-01"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-02" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 8)
+
+[node name="bulb" type="MeshInstance3D" parent="light-02"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-02"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-03" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 8)
+
+[node name="bulb" type="MeshInstance3D" parent="light-03"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-03"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-04" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 8)
+
+[node name="bulb" type="MeshInstance3D" parent="light-04"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-04"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-05" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, 8)
+
+[node name="bulb" type="MeshInstance3D" parent="light-05"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-05"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-06" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, 4)
+
+[node name="bulb" type="MeshInstance3D" parent="light-06"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-06"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-07" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 4)
+
+[node name="bulb" type="MeshInstance3D" parent="light-07"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-07"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-08" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
+
+[node name="bulb" type="MeshInstance3D" parent="light-08"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-08"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-09" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 4)
+
+[node name="bulb" type="MeshInstance3D" parent="light-09"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-09"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-10" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, 4)
+
+[node name="bulb" type="MeshInstance3D" parent="light-10"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-11" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, 0)
+
+[node name="bulb" type="MeshInstance3D" parent="light-11"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-12" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 0)
+
+[node name="bulb" type="MeshInstance3D" parent="light-12"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-13" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-mesh = SubResource("SphereMesh_kudwm")
+
+[node name="bulb" type="MeshInstance3D" parent="light-13"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-14" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 0)
+
+[node name="bulb" type="MeshInstance3D" parent="light-14"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-15" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, 0)
+
+[node name="bulb" type="MeshInstance3D" parent="light-15"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-16" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, -4)
+
+[node name="bulb" type="MeshInstance3D" parent="light-16"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-17" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, -4)
+
+[node name="bulb" type="MeshInstance3D" parent="light-17"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-18" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4)
+
+[node name="bulb" type="MeshInstance3D" parent="light-18"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-19" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, -4)
+
+[node name="bulb" type="MeshInstance3D" parent="light-19"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-20" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, -4)
+
+[node name="bulb" type="MeshInstance3D" parent="light-20"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-21" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, -8)
+
+[node name="bulb" type="MeshInstance3D" parent="light-21"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-22" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, -8)
+
+[node name="bulb" type="MeshInstance3D" parent="light-22"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-23" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -8)
+
+[node name="bulb" type="MeshInstance3D" parent="light-23"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-24" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, -8)
+
+[node name="bulb" type="MeshInstance3D" parent="light-24"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
+
+[node name="light-25" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, -8)
+
+[node name="bulb" type="MeshInstance3D" parent="light-25"]
+mesh = SubResource("BoxMesh_jesv3")
+skeleton = NodePath("../..")
+
+[node name="light" type="OmniLight3D" parent="light-25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+omni_range = 8.0
