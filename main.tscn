@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://kidewtdh6v7y"]
+[gd_scene load_steps=7 format=3 uid="uid://kidewtdh6v7y"]
 
 [ext_resource type="Script" uid="uid://cdb1dqo0qfemh" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dpq62o73hs7qp" path="res://objetos/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://c88cip8vgqj10" path="res://objetos/Room.tscn" id="3_h2yge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -28,3 +29,5 @@ environment = SubResource("Environment_1bvp3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94106, 0)
 speed = 5.0
 orbit = false
+
+[node name="Room" parent="." instance=ExtResource("3_h2yge")]

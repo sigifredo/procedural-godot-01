@@ -1,6 +1,10 @@
 extends Node3D
 class_name Main
 
+
+@onready var room: Room = $Room
+
+
 var width:int = 64;
 var height:int = 64;
 
@@ -9,24 +13,21 @@ var roomWidthMax:int = 5;
 var roomLengthMin:int = 3;
 var roomLengthMax:int = 5;
 
-
-var hallway_scene:PackedScene = preload('res://objetos/Hallway.tscn')
-var room_scene:PackedScene = preload('res://objetos/Room.tscn')
-
+var hallway_scene: PackedScene = preload('res://objetos/Hallway.tscn')
 
 func _ready() -> void:
-	add_child(room_scene.instantiate())
+	# room.add_halways()
+	pass
 
+	# for door in room.get_doors():
+	# 	var hw_tmp = hallway_scene.instantiate()
+	# 	# var hw_tmp: Hallway = Hallway.new()
+	# 	print(door)
 
-func _get_start_room_rect() -> Rect2i:
-	var roomWidth:int = randi_range(roomWidthMin, roomWidthMax)
-	var availableWidthX:int = int(width / 2.0) - roomWidth
-	var randomX:int = randi_range(0, availableWidthX)
-	var roomX = randomX + int(width / 4.0)
+	# 	hw_tmp.rotation.y = door.w + (PI / 2.0)
+	# 	hw_tmp.position.x = door.x + (hw_tmp.get_size().z / 2)
+	# 	hw_tmp.position.y = door.y
+	# 	hw_tmp.position.z = door.z
 
-	var roomLength:int = randi_range(roomLengthMin, roomLengthMax)
-	var availableLengthY:int = int(height / 2.0) - roomLength
-	var randomY:int = randi_range(0, availableLengthY)
-	var roomY = randomY + int(height / 4.0)
-
-	return Rect2i(roomX, roomY, roomWidth, roomLength)
+	# 	add_child(hw_tmp)
+	# 	break

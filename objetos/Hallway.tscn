@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl7gycrugvr2w"]
+[gd_scene load_steps=7 format=3 uid="uid://cl7gycrugvr2w"]
 
+[ext_resource type="Script" uid="uid://bkydyb5yvhsen" path="res://objetos/hallway.gd" id="1_r5npl"]
 [ext_resource type="Material" uid="uid://dsdw31xjise1a" path="res://materiales/floor.tres" id="1_wew3q"]
 [ext_resource type="Material" uid="uid://c7gyenofg3tux" path="res://materiales/wall.tres" id="2_r5npl"]
 [ext_resource type="Material" uid="uid://bdt3bnpinei0a" path="res://materiales/roof.tres" id="3_2efj8"]
@@ -10,9 +11,10 @@ material = ExtResource("3_og6rf")
 size = Vector3(1, 0.05, 1)
 
 [node name="Hallway" type="Node3D"]
+script = ExtResource("1_r5npl")
 
 [node name="floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.25, 0)
 use_collision = true
 collision_layer = 2
 collision_mask = 0
@@ -20,7 +22,7 @@ size = Vector3(3, 0.5, 8)
 material = ExtResource("1_wew3q")
 
 [node name="wall-01" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 0)
 use_collision = true
 collision_layer = 2
 collision_mask = 0
@@ -28,7 +30,7 @@ size = Vector3(0.5, 5, 8)
 material = ExtResource("2_r5npl")
 
 [node name="wall-02" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 0, 0)
 use_collision = true
 collision_layer = 2
 collision_mask = 0
@@ -36,14 +38,14 @@ size = Vector3(0.5, 5, 8)
 material = ExtResource("2_r5npl")
 
 [node name="bulb" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 mesh = SubResource("BoxMesh_r5npl")
 
 [node name="light" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
 [node name="roof" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
 use_collision = true
 collision_layer = 2
 size = Vector3(3, 0.5, 8)
