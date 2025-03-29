@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d103icm480vb6"]
+
+[ext_resource type="Material" uid="uid://c7gyenofg3tux" path="res://materiales/wall.tres" id="1_2etf0"]
+[ext_resource type="Script" uid="uid://cmkdvral7iug0" path="res://objetos/room_wall.gd" id="1_cqfa8"]
+
+[node name="wall-01" type="Node3D"]
+script = ExtResource("1_cqfa8")
+
+[node name="left" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+use_collision = true
+collision_layer = 2
+size = Vector3(0.5, 5, 10)
+material = ExtResource("1_2etf0")
+
+[node name="right" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+use_collision = true
+collision_layer = 2
+size = Vector3(0.5, 5, 10)
+material = ExtResource("1_2etf0")

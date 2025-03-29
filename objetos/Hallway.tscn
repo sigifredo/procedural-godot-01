@@ -1,19 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl7gycrugvr2w"]
+[gd_scene load_steps=6 format=3 uid="uid://cl7gycrugvr2w"]
 
 [ext_resource type="Material" uid="uid://dsdw31xjise1a" path="res://materiales/floor.tres" id="1_wew3q"]
-[ext_resource type="Texture2D" uid="uid://dwv3pa3f557h7" path="res://textures/wall-03.png" id="2_2efj8"]
+[ext_resource type="Material" uid="uid://c7gyenofg3tux" path="res://materiales/wall.tres" id="2_r5npl"]
 [ext_resource type="Material" uid="uid://bdt3bnpinei0a" path="res://materiales/roof.tres" id="3_2efj8"]
 [ext_resource type="Material" uid="uid://ktjjfu3f51b3" path="res://materiales/bulb.tres" id="3_og6rf"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3uf8"]
-albedo_texture = ExtResource("2_2efj8")
-uv1_scale = Vector3(2, 2, 2)
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2efj8"]
-albedo_texture = ExtResource("2_2efj8")
-uv1_scale = Vector3(2, 2, 2)
-uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_r5npl"]
 material = ExtResource("3_og6rf")
@@ -35,7 +25,7 @@ use_collision = true
 collision_layer = 2
 collision_mask = 0
 size = Vector3(0.5, 5, 8)
-material = SubResource("StandardMaterial3D_r3uf8")
+material = ExtResource("2_r5npl")
 
 [node name="wall-02" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 2, 0)
@@ -43,7 +33,7 @@ use_collision = true
 collision_layer = 2
 collision_mask = 0
 size = Vector3(0.5, 5, 8)
-material = SubResource("StandardMaterial3D_2efj8")
+material = ExtResource("2_r5npl")
 
 [node name="bulb" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
