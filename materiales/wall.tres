@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c7gyenofg3tux"]
+
+[ext_resource type="Texture2D" uid="uid://dwv3pa3f557h7" path="res://textures/wall-03.png" id="1_lrsco"]
+
+[resource]
+albedo_texture = ExtResource("1_lrsco")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
